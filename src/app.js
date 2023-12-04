@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 
 // routers
 const authRoutes = require("./routes/Authentication/authentication");
+const allproducts = require("./routes/AllProducts/AllProducts");
 
 // middlewares
 applyMiddleWares(app);
@@ -14,8 +15,8 @@ applyMiddleWares(app);
 // jwt related api
 app.use(authRoutes);
 
-// allUsers api
-// app.use(allUsers);
+// allProducts api
+app.use(allproducts);
 
 // server health check api
 app.get("/", (req, res) => {
