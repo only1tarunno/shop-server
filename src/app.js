@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 // routers
 const authRoutes = require("./routes/Authentication/authentication");
 const allproducts = require("./routes/AllProducts/AllProducts");
+const allUsers = require("./routes/User/user");
 
 // middlewares
 applyMiddleWares(app);
@@ -17,6 +18,9 @@ app.use(authRoutes);
 
 // allProducts api
 app.use(allproducts);
+
+// user related api
+app.use(allUsers);
 
 // server health check api
 app.get("/", (req, res) => {
