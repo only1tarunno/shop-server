@@ -13,10 +13,6 @@ const CartSchema = new Schema({
     type: String,
     required: true,
   },
-  image_url: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: true,
@@ -29,23 +25,7 @@ const CartSchema = new Schema({
     type: Number,
     required: true,
   },
-  sku: {
-    type: String,
-    required: true,
-  },
-  tags: {
-    type: [String],
-    required: true,
-  },
   categories: {
-    type: String,
-    required: true,
-  },
-  availability_count: {
-    type: Number,
-    required: true,
-  },
-  description: {
     type: String,
     required: true,
   },
