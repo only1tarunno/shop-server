@@ -25,6 +25,7 @@ const CartSchema = new Schema({
     type: Number,
     required: true,
   },
+
   categories: {
     type: String,
     required: true,

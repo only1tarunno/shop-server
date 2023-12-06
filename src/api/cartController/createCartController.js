@@ -3,8 +3,12 @@ const Cart = require("../../models/Cart");
 const createCartController = async (req, res) => {
   try {
     const cartItem = req.body;
-    console.log(cartItem.menuId);
-    const existingCartItem = await Cart.findOne({ menuId: cartItem.menuId });
+    const email = req.user.email;
+    console.log(email);
+    const existingCartItem = await Cart.findOne({
+      menuId: cartItem.menuId,
+      email,
+    });
     if (existingCartItem) {
       // If the cart item with the same menuId exists, update the quantity
       existingCartItem.quantity += cartItem.quantity;
@@ -14,7 +18,8 @@ const createCartController = async (req, res) => {
       const result = await existingCartItem.save();
       res.send(result);
     } else {
-      // If the cart item doesn't exist, create a new one
+      // If no cart item exists for the same menuId and user email, create a new one
+      cartItem.email = email; // Assign the user's email to the cart item
       const result = await Cart.create(cartItem);
       res.send(result);
     }
