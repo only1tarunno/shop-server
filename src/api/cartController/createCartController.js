@@ -4,7 +4,7 @@ const createCartController = async (req, res) => {
   try {
     const cartItem = req.body;
     const email = req.user.email;
-    console.log(email);
+
     const existingCartItem = await Cart.findOne({
       menuId: cartItem.menuId,
       email,
