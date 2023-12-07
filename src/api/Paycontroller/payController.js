@@ -20,7 +20,7 @@ const payController = async (req, res) => {
       }
     }
     return res.json({
-      message: `successfull`,
+      message: `Products are avaiable`,
       quantitymessage: `In Stock`,
       sucess: true,
     });
