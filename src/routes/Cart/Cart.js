@@ -1,5 +1,6 @@
 const cartItemUpdate = require("../../api/cartController/cartItemUpdate");
 const createCartController = require("../../api/cartController/createCartController");
+const deleteSingleCartItem = require("../../api/cartController/deleteSingleCartItem");
 const getCartProducts = require("../../api/cartController/getCartProducts");
 const getSinglecart = require("../../api/cartController/getSinglecart");
 const verifyToken = require("../../middleWares/verifyToken");
@@ -14,5 +15,7 @@ router.get("/singlecart/:id", verifyToken, getSinglecart);
 router.post("/carts", verifyToken, createCartController);
 // update a product in the cartitem
 router.patch("/carts/:id", verifyToken, cartItemUpdate);
+// delete a product from cart
+router.delete("/carts/:id", verifyToken, deleteSingleCartItem);
 
 module.exports = router;
