@@ -12,6 +12,7 @@ const allUsers = require("./routes/User/user");
 const Carts = require("./routes/Cart/Cart");
 const pay = require("./routes/Pay/Pay");
 const starRating = require("./routes/starRating/starRating");
+const categories = require("./routes/Categories/Categories");
 
 // middlewares
 applyMiddleWares(app);
@@ -24,13 +25,14 @@ app.use(allproducts);
 
 // user related api
 app.use(allUsers);
-
 // carts related api
 app.use(Carts);
 // payment related api
 app.use(pay);
 // rating related api
 app.use(starRating);
+// Category related api
+app.use(categories);
 
 // server health check api
 app.get("/", (req, res) => {
