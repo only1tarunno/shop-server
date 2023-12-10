@@ -14,6 +14,7 @@ router.get("/admin/allUsers", verifyToken, verifyAdmin, allUsers);
 
 // create a user
 router.post("/users", createUser);
+
 // update a user
 router.patch("/users/:email", verifyToken, userProfileUpdate);
 

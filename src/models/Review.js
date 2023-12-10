@@ -26,6 +26,14 @@ const ReviewSchema = new Schema({
     type: String,
     required: true,
   },
+  reviewProductImage: {
+    type: String,
+    required: true,
+  },
+  reviewtitle: {
+    type: String,
+    required: true,
+  },
 });
 
 const Review = model("Review", ReviewSchema);
