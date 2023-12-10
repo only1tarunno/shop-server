@@ -1,5 +1,6 @@
 const adminAllProducts = require("../../api/ProductsController/adminAllProducts");
 const createProducts = require("../../api/ProductsController/createProducts");
+const deleteProduct = require("../../api/ProductsController/deleteProduct");
 const getAllProducts = require("../../api/ProductsController/getAllProducts");
 const getSingleProduct = require("../../api/ProductsController/getSingleProduct");
 const verifyAdmin = require("../../middleWares/verifyAdmin");
@@ -14,7 +15,16 @@ router.get("/products/:id", getSingleProduct);
 
 // get all product for admin dashboard
 router.get("/admin/allProducts", adminAllProducts);
+
 // admin will create a product
 router.post("/admin/allProducts", verifyToken, verifyAdmin, createProducts);
+
+// admin delete product
+router.delete(
+  "/admin/allProducts/:id",
+  verifyToken,
+  verifyAdmin,
+  deleteProduct
+);
 
 module.exports = router;
