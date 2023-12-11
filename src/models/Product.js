@@ -17,6 +17,10 @@ const ProductSchema = new Schema({
     type: Number,
     required: true,
   },
+  reseller_price: {
+    type: Number,
+    required: true,
+  },
   sku: {
     type: String,
     required: true,
