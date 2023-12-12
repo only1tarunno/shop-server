@@ -1,3 +1,4 @@
+const userActivities = require("../../api/Statistics/userActivities");
 const allUsers = require("../../api/Usercontroller/allUser");
 const createUser = require("../../api/Usercontroller/createUser");
 const singleUser = require("../../api/Usercontroller/singleUser");
@@ -19,6 +20,14 @@ router.post("/users", createUser);
 router.patch("/users/:email", verifyToken, userProfileUpdate);
 
 // admin can update user
-router.patch("/admin/userUpdate/:email", verifyToken, userProfileUpdate);
+router.patch(
+  "/admin/userUpdate/:email",
+  verifyToken,
+  verifyAdmin,
+  userProfileUpdate
+);
+
+// userActivites api for dashboard chart
+router.get("/userActivities/:email", userActivities);
 
 module.exports = router;

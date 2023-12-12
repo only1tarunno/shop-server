@@ -10,7 +10,7 @@ const verifyToken = require("../../middleWares/verifyToken");
 const router = require("express").Router();
 
 // get all payments
-router.get("/orders", verifyToken, verifyAdmin, getAllOrders);
+router.get("/orders", getAllOrders);
 
 // update status of a product
 router.patch("/orders/:id", verifyToken, verifyAdmin, updateOrder);
