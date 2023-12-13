@@ -57,7 +57,7 @@ const orderStats = async (req, res) => {
 
     res.send(formattedResult);
   } catch (error) {
-    res.status(500).send({ error: error.message });
+    res.send({ error: error.message });
   }
 };
 
